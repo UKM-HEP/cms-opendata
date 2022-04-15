@@ -8,5 +8,7 @@ COPY ssh_shared /home/cmsusr/.ssh
 RUN chown -R cmsusr:cmsusr /home/cmsusr/.ssh
 RUN chmod 600 /home/cmsusr/.ssh/config
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
+RUN git config --global user.email "$(git config --global user.email)"
+RUN git config --global user.name "$(git config --global user.name)"
 USER cmsusr
 CMD ["/bin/bash"]
