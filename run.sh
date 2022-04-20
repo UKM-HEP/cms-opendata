@@ -27,3 +27,5 @@ rm -rf ssh_shared
 # initalize container
 echo docker run --privileged --name opendata --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/store1:rw -v /mnt/store2:/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
 docker run --privileged --name opendata --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/store1:rw -v /mnt/store2:/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
+
+#echo "alias cmsenv=\"docker start -i ${NAME}\"" >> $HOME/.bashrc
