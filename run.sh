@@ -27,7 +27,8 @@ rm -rf ssh_shared
 rm -f gitconfig
 
 # initalize container
-echo docker run --privileged -p 5901:5901 -p 6080:6080 --name opendata --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/store1:rw -v /mnt/store2:/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
-docker run --privileged -p 5901:5901 -p 6080:6080 --name opendata --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/store1:rw -v /mnt/store2:/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
+echo docker run --privileged --name opendata --net=host --env="DISPLAY" -v ${HOME}/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/mnt/store1:rw -v /mnt/store2:/mnt/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
+
+docker run --privileged --name opendata --net=host --env="DISPLAY" -v ${HOME}/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/mnt/store1:rw -v /mnt/store2:/mnt/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
 
 #echo "alias cmsenv=\"docker start -i ${NAME}\"" >> $HOME/.bashrc
