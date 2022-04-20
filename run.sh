@@ -9,6 +9,7 @@ if [ -z $1 ]; then
 fi
 
 scp -r ${HOME}/.ssh ssh_shared
+scp ${HOME}/.gitconfig gitconfig
 
 if [ ! -f ./ssh_shared/config ];then
     touch ./ssh_shared/config
@@ -23,6 +24,7 @@ VERSION="1.0"
 echo docker build -f $FILE -t $DH_NAME/${NAME,,}:${VERSION} .
 docker build -f $FILE -t $DH_NAME/${NAME,,}:${VERSION} .
 rm -rf ssh_shared
+rm -f gitconfig
 
 # initalize container
 echo docker run --privileged --name opendata --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw -v /mnt/store1:/store1:rw -v /mnt/store2:/store2:rw -it $DH_NAME/${NAME,,}:${VERSION} /bin/bash
