@@ -10,6 +10,10 @@ fi
 
 scp -r ${HOME}/.ssh ssh_shared
 
+if [ ! -f ./ssh_shared/config ];then
+    touch ./ssh_shared/config
+fi
+
 DH_NAME="siewyanhoh"
 FILE=$(basename $1)
 NAME=$(basename -s .Dockerfile $1)
